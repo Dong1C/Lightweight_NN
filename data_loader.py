@@ -52,4 +52,6 @@ def load_data(data_dir='./data/MTB', batch_size=32, img_size=(100, 100)):
 
 if __name__ == '__main__':
     a, b, c = load_data()
-    print(a, b, c)
+    print(a)
+    print(b)
+    print(c)

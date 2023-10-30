@@ -24,11 +24,11 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 for mdn, model in model_classes.items():
     print(f"--------------------------{mdn} train begin--------------------------")
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters())
+    optimizer = optim.SGD(model.parameters(), momentum=0.9, lr=0.01)
     exp_lr_scheduler = lr_scheduler.StepLR(optimizer, step_size=7, gamma=0.1)
     
     # 开始训练模型
-    num_epochs = 1
+    num_epochs = 5
     best_model_wts = copy.deepcopy(model.state_dict())
     best_acc = 0.0
     
@@ -92,7 +92,7 @@ for mdn, model in model_classes.items():
                 best_acc = epoch_acc
                 best_model_wts = copy.deepcopy(model.state_dict())
     
-    torch.save(best_model_wts, f'{mdn}_bw')
+    torch.save(best_model_wts, f'./models_pms/{mdn}_bw')
     epoch = range(1, len(train_loss_history)+1)
  
     fig, ax = plt.subplots(1, 2, figsize=(10,4))

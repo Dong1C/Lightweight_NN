@@ -24,12 +24,12 @@ class MobileNet(nn.Module):
             DepthwiseSeparableConv(128, 256, 2),
             DepthwiseSeparableConv(256, 256, 1),
             DepthwiseSeparableConv(256, 512, 2),
-            *[DepthwiseSeparableConv(512, 512, 1) for _ in range(5)],
-            DepthwiseSeparableConv(512, 1024, 2),
-            DepthwiseSeparableConv(1024, 1024, 1),
+            *[DepthwiseSeparableConv(512, 512, 1) for _ in range(2)],
+            # DepthwiseSeparableConv(512, 1024, 2),
+            # DepthwiseSeparableConv(1024, 1024, 1),
             nn.AdaptiveAvgPool2d(1)
         )
-        self.classifier = nn.Linear(1024, num_classes)
+        self.classifier = nn.Linear(512, num_classes)
 
     def forward(self, x):
         x = self.model(x)
