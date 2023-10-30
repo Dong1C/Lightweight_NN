@@ -9,10 +9,10 @@ from data_loader import load_data
 
 # set the models
 model_classes = {
-    "squeezenet": models.squeezenet_model,
+    # "squeezenet": models.squeezenet_model,
     "mobilenet": models.mobilenet_model,
-    "xceptionnet": models.xceptionnet_model,
-    "shufflenet": models.shufflenet_model
+    # "xceptionnet": models.xceptionnet_model,
+    # "shufflenet": models.shufflenet_model
 }
 
 # set the dataloaders, dataset_sizes, class_names
