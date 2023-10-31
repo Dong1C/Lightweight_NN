@@ -4,10 +4,10 @@ import models
 
 # set the models
 model_classes = {
-    "squeezenet": models.squeezenet_model,
+    # "squeezenet": models.squeezenet_model,
     "mobilenet": models.mobilenet_model,
-    "xceptionnet": models.xceptionnet_model,
-    "shufflenet": models.shufflenet_model
+    # "xceptionnet": models.xceptionnet_model,
+    # "shufflenet": models.shufflenet_model
 }
 
 def count_parameters(model):
