@@ -47,7 +47,6 @@ class SqueezeNet(nn.Module):
 
 # Unit test
 if __name__ == '__main__':
-    # 创建 MobileNet 模型实例 类型数量100 输入一个[1, 3, 32, 32]的张量来模拟
     x_in = torch.randn(1, 3, 32, 32)
     model = SqueezeNet(num_classes=100)
     x_in = F.interpolate(x_in, size=(224, 224), mode='bilinear', align_corners=False)
